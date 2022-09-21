@@ -10,21 +10,7 @@ typedef struct persona {
     struct persona * next;
 } p;
 
-char anagrafica(char nome, char cognome) {
-    char a = strcat(nome, cognome);
-
-    return a;
-};
-
 int main() {
-    // struct persona p;
-
-    p->nome = "simone";
-    p->cognome = "acuti";
-
-    // char a = anagrafica(p.nome, p.cognome);
-
-    printf(p.nome);
 
     return 0;
 }
