@@ -1,4 +1,3 @@
-
 // quadrato di un numero con l'uso di sole somme
 
 #include <stdio.h>

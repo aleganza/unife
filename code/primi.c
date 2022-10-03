@@ -1,4 +1,4 @@
-
+// numeri primi
 
 #include <stdio.h>
 #include <stdlib.h>
