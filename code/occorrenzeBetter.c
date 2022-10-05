@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
                     if (k == j)
                         tmp = argv[i][j];
 
-                    // se trovo la lettera aumento e annullo
+                    // se trovo la lettera aumento e rimuovo la lettera
                     if (argv[i][k] == tmp) {
                         cnt++;
                         argv[i][k] = '-';
