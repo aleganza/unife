@@ -32,7 +32,6 @@ int main(int argc, char **argv) {
             }
             cnt = 0;
         }
-        // acuti gay
         printf ("\n");
     }
     
