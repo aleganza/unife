@@ -14,7 +14,9 @@ int main() {
 
     if ((anno % 4 == 0 && anno % 100 != 0) || anno % 400 == 0)
         bis = 1;
-        
+
+    if (mese == )
+
     switch(mese) {
         case 1: {
             nGiorni = 31;
@@ -65,6 +67,10 @@ int main() {
         }
         case 12: {
             nGiorni = 31;
+            break;
+        }
+        default: {
+            printf ("Mese non valido");
             break;
         }
     }
