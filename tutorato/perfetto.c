@@ -1,20 +1,20 @@
 #include <stdio.h>
 
 int main () {
-    int div = 0;
+    int n, somma = 0;
 
-    for (int i=1; i<=10000; i++) {
-        for (int j=1; j<i; j++) {
-            if (i % j == 0) {
-                div += j;
-            }
+    printf ("Inserire un numero: ");
+    scanf ("%d", &n);
+
+    for (int i=1; i<n; i++) {
+        if (n % i == 0) {
+            somma += i;
         }
+    }
 
-        if (i == div) {
-            printf ("%d\n", div);
-        }
-        
-        div = 0;
-
+    if (n == somma) {
+        printf ("Il numero %d e' un numero perfetto", n);
+    } else {
+        printf ("Il numero %d NON e' un numero perfetto", n);
     }
 }
