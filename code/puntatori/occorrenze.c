@@ -1,3 +1,15 @@
+/* 
+- Leggere da tastiera due numeri interi, n ≤100 e k ≤ n.
+- Successivamente prendere in ingresso un array di interi di dimensione n, compresi tra 0 e k - 1.
+- Sviluppare una funzione che trovi il valore che si ripete più volte nell’array ed il numero di ripetizioni.
+    Implementare almeno una funzione occorrenze che abbia almeno come parametro l’array inserito e che calcoli
+    l’elemento che si ripete più volte e il numero di occorrenze (poiché una funzione può avere solamente un valore
+    di ritorno, uno dei due valori deve essere passato per riferimento...).
+- Per esempio, per n=12, k = 10 e arr = {2, 2, 2, 0, 2, 0, 2, 8, 0, 9, 2, 3}, la funzione calcola 2 (elemento che si ripete
+    più volte) e 6 (numero di occorrenze). Come si può sfruttare il fatto che il numero di interi sia compreso tra 0 e k -
+    1, per aumentare la velocità di esecuzione? 
+*/
+
 #include <stdio.h>
 
 void generaArray(int *arr, int dim, int limite) {
