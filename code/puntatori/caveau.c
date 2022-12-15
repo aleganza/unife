@@ -9,7 +9,7 @@
     - Inserire ciascuna struttura in un array di strutture e ordinarlo sul campo valore in maniera crescente. Selezionare
         poi le prime k pietre e stamparle.
     - Sviluppare la soluzione utilizzando il numero di funzioni che si ritiene adeguato.
- */
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
