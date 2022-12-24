@@ -32,7 +32,7 @@ typedef struct nodo {
 typedef Nodo* Lista;
 
 // stampa
-void stampaLista (Lista l) {
+void stampaLista(Lista l) {
     while (l != NULL) {
         printf ("Nome: %33s\n", l->dato.nome);
         printf ("Cognome: %30s\n", l->dato.cognome);
@@ -44,7 +44,7 @@ void stampaLista (Lista l) {
 }
 
 // es: se inserisco secondo a, b, c secondo questo ordine, la lista sarà formata da c, b, a (inserimento in testa)
-void insTesta (Lista* pl, char* nome, char* cognome, int eta) {
+void insTesta(Lista* pl, char* nome, char* cognome, int eta) {
     // alloco memoria per il nodo nuovo
     Nodo* nodo = (Nodo*)malloc(sizeof(Nodo));
 
@@ -59,31 +59,48 @@ void insTesta (Lista* pl, char* nome, char* cognome, int eta) {
     strcpy (nodo->dato.cognome, cognome);
     nodo->dato.eta = eta;
 
-    // attacco il nodo alla lista
+    // il nuovo nodo viene collegato in testa alla lista
     nodo->next = *pl;
-
-    // testa
+    
+    // la lista (*pl) punta al nodo creato quindi alla testa
     *pl = nodo;
 }
 
-void insCoda (Lista* pl, char* nome, char* cognome, int eta) {
-    
+// Lista* ricerca(Lista* pl) {
+//     while (*pl != NULL) {
+//         pl = &(*pl)->next;
+//     }
+
+//     return pl;
+// }
+
+Lista* ricerca(Lista* pl) {
+    while (*pl){
+        pl = &(*pl)->next;
+    }
+    return pl;
+}
+
+void insCoda(Lista* pl, char* nome, char* cognome, int eta) {
+    pl = ricerca(pl);
+
+    insTesta(pl, nome, cognome, eta);
 }
 
 int main() {
-    Lista l;
+    Lista l = NULL;
 
     // listaNonOrdinata (&l, 5);
 
     insTesta(&l, "Alessio", "Ganzarolli", 19);
     insTesta(&l, "Simone", "Acuti", 19);
-    insTesta(&l, "Anas", "Noureddine", 18);
-    insTesta(&l, "Leonardo", "Lodi", 19);
+    // insTesta(&l, "Anas", "Noureddine", 18);
+    // insTesta(&l, "Leonardo", "Lodi", 19);
 
     insCoda(&l, "Marius", "Ceban", 21);
 
     stampaLista(l);
-
+    
     printf ("\n");
     return 0;
 }
