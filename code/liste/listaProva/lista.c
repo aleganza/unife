@@ -31,6 +31,11 @@ typedef struct nodo {
 
 typedef Nodo* Lista;
 
+// inizializzazione lista
+void nuovaLista(Lista* pl) {
+    *pl = NULL;
+}
+
 // stampa
 void stampaLista(Lista l) {
     while (l != NULL) {
@@ -43,7 +48,7 @@ void stampaLista(Lista l) {
     }
 }
 
-// es: se inserisco secondo a, b, c secondo questo ordine, la lista sarà formata da c, b, a (inserimento in testa)
+// inserimento in testa: se inserisco a, b, c secondo questo ordine, la lista sarà formata da c, b, a
 void insTesta(Lista* pl, char* nome, char* cognome, int eta) {
     // alloco memoria per il nodo nuovo
     Nodo* nodo = (Nodo*)malloc(sizeof(Nodo));
@@ -74,6 +79,7 @@ void insTesta(Lista* pl, char* nome, char* cognome, int eta) {
 //     return pl;
 // }
 
+// scorrimento fino alla fine della lista per permettere l'inserimento in coda
 Lista* ricerca(Lista* pl) {
     while (*pl){
         pl = &(*pl)->next;
@@ -81,14 +87,17 @@ Lista* ricerca(Lista* pl) {
     return pl;
 }
 
+// inserimento in coda: se inserisco a, b, c secondo questo ordine, la lista sarà formata da a, b, c
 void insCoda(Lista* pl, char* nome, char* cognome, int eta) {
+    // scorro fino alla fine della lista
     pl = ricerca(pl);
 
     insTesta(pl, nome, cognome, eta);
 }
 
 int main() {
-    Lista l = NULL;
+    Lista l;
+    nuovaLista(&l);
 
     // listaNonOrdinata (&l, 5);
 
