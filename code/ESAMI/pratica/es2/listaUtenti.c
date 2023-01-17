@@ -26,13 +26,15 @@ void inizLista(Lista *pl, char* d) {
     nodo->dato.cnt[0] = 4;
     nodo->dato.cnt[1] = 4;
     nodo->dato.cnt[2] = 4;
+    nodo->dato.tentativi = 0;
 
     nodo->next = *pl;
     *pl = nodo;
 }
 
-void accessoNegato(Record d) {
+void accessoNegato(Lista *pl, Record d) {
     printf ("Codice Fiscale %s, attivita' %d: Accesso negato\n", d.CF, d.attivita);
+    (*pl)->dato.tentativi++; // parte 2
 }
 
 void scorriLista(Lista *pl, Record d) {
@@ -44,12 +46,17 @@ void scorriLista(Lista *pl, Record d) {
         pl = &(*pl)->next;
     }
 
+    // parte 2, scommentare per la parte 2
+    // if ((*pl)->dato.tentativi == 3) {
+    //     return;
+    // }
+
     switch(d.attivita) {
         case 1: {
             if ((*pl)->dato.cnt[0] != 0) {
                 (*pl)->dato.cnt[0]--;
             } else {
-                accessoNegato(d);
+                accessoNegato(pl, d);
             }
             break;
         }
@@ -57,7 +64,7 @@ void scorriLista(Lista *pl, Record d) {
             if ((*pl)->dato.cnt[1] != 0) {
                 (*pl)->dato.cnt[1]--;
             } else {
-                accessoNegato(d);
+                accessoNegato(pl, d);
             }
             break;
         }
@@ -65,7 +72,7 @@ void scorriLista(Lista *pl, Record d) {
             if ((*pl)->dato.cnt[2] != 0) {
                 (*pl)->dato.cnt[2]--;
             } else {
-                accessoNegato(d);
+                accessoNegato(pl, d);
             }
             break;
         }

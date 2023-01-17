@@ -12,6 +12,7 @@ typedef struct {
 typedef struct {
     char CF[DIM];
     int cnt[3];
+    int tentativi; // parte 2
 } Dato;
 
 typedef struct nodo {
@@ -25,4 +26,4 @@ void nuovaLista(Lista* pl);
 void stampaLista(Lista l);
 void inizLista(Lista *pl, char* d);
 void scorriLista(Lista *pl, Record d);
-void accessoNegato(Record d);
+void accessoNegato(Lista *pl, Record d);
