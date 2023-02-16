@@ -16,6 +16,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define START_TRIANGLE 286
+#define START_PENTAGONE 2
+#define START_HEXAGONE 2
+
 unsigned long long toTriangle(int n) {
     return (unsigned long long) n*(n+1)/2;
 }
@@ -34,18 +38,18 @@ int main() {
                        numberP = 1, 
                        numberH = 1;
 
-    for (t=286; ; t++) {
+    for (t=START_TRIANGLE; ; t++) {
         numberT = toTriangle(t);
 
-        for (p=2; numberP<=numberT; p++) {
+        for (p=START_PENTAGONE; numberP<=numberT; p++) {
             numberP = toPentagonal(p);
     
             if (numberP == numberT) {
-                for (h=2; numberH<=numberP; h++) {
+                for (h=START_HEXAGONE; numberH<=numberP; h++) {
                     numberH = toHexagonal(h);
 
                     if (numberP == numberH) {
-                        printf ("TROVATO (%llu): %d %d %d", numberT, t, p, h);
+                        printf ("Found! (%llu)\nTriangle n: %d\nPentagonal n: %d\nHexagonal n: %d", numberT, t, p, h);
                         exit (0);
                     }
                 }
