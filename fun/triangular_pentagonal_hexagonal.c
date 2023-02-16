@@ -17,8 +17,8 @@
 #include <stdlib.h>
 
 #define START_TRIANGLE 286
-#define START_PENTAGONE 2
-#define START_HEXAGONE 2
+#define START_PENTAGONE 166
+#define START_HEXAGONE 144
 
 unsigned long long toTriangle(int n) {
     return (unsigned long long) n*(n+1)/2;
