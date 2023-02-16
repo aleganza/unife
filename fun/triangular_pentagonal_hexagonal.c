@@ -9,7 +9,8 @@
 
     Find the next triangle number that is also pentagonal and hexagonal.
 
-    1533776805
+    Result: 1533776805
+
 */
 
 #include <stdio.h>
