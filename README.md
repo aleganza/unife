@@ -1,5 +1,3 @@
-# Esercizi di Programmazione in C
+# Unife Programming Exercises
 
 <img src="https://img.shields.io/badge/uni-fe-blue">
-
-Esercizi di programmazione in C come esercitazione durante l'univesità
