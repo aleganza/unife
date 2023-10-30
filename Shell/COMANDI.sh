@@ -12,7 +12,7 @@
     sudo -u target comando # target è l'utente che si vuole utilizzare
     ln [-s] # collegamento fisico
     ls # lista roba in dir
-        -l # più info
+        -l # più info (anche permessi)
         -t # ordina per data
         -r # ordine invertito
         -a # mostra anche file nascosti
@@ -24,6 +24,9 @@
     cd # cambia cartella
     pwd # stampa cartella corrente
     ls [<dir>] # visualizza contenuto cartella
+        / # root
+    chmod # cambia i permessi di un file/cartella
+        <user><group><others> <nomefile> # ex 750 file.txt
 
 # FILE
     ln <vecchionome> <nuovonome> # link
@@ -47,4 +50,12 @@
         -c <nomefile> # conta i caratteri
     grep <stringa> <nomefile> # stampa righe di un file che contengono una stringa passata
         -c # stampa invece il numero di righe trovate
-        
+        -r <stringa> <nomecartella> # lo fa con tutti i file in una cartella
+    head # mostra le prime righe di un file
+        -n 15 <nomefile> # prime 15 righe
+        -c 30 <nomefile> # primi 30 caratteri
+    tail # identico ad head ma dal fondo
+    time <comando> # cronometra il tempo di esecuzione di un comando
+    who # mostra gli utenti collegati al sistema
+    man <comando> # helper di sistema
+    ps # mostra i processi attivi
