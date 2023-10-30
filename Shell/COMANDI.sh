@@ -4,14 +4,21 @@
     • invece di ` ... ` → $( ... )
     AltGr + ì => ~
 
+# COSTANTI GLOBALI
+    $USER # se usato nei comandi, richiama il nome dell'utente loggato
+    $HOME # cartella home di sistema
+
 # GENERALI
     man comando # informazioni sul comando in questione
     cd ~ # vai alla root delle cartelle
     pwd # mostra PATH assoluta della dir corrente
     sudo comando # comando con amministratore
     sudo -u target comando # target è l'utente che si vuole utilizzare
+    <comando> > <nomefile> # sovrascrive il file con ciò che stampa il comando
+    <comando> >> <nomefile> # non sovrascrive ma aggiunge
     ln [-s] # collegamento fisico
     ls # lista roba in dir
+        -p # aggiunge "/" alle cartelle
         -l # più info (anche permessi)
         -t # ordina per data
         -r # ordine invertito
@@ -26,12 +33,13 @@
     ls [<dir>] # visualizza contenuto cartella
         / # root
     chmod # cambia i permessi di un file/cartella
+        
         <user><group><others> <nomefile> # ex 750 file.txt
 
 # FILE
     ln <vecchionome> <nuovonome> # link
     cp <filesorgente> <filedestinazione> # copia file
-    mv <vecchionome> <nuovonome> # rinonima sposta file
+    mv <vecchionome> <nuovonome> # rinonima / sposta file
     rm <nomefile> # cancella file
     cat <nomefile> # stampa contenuto file
     more/less
@@ -59,3 +67,7 @@
     who # mostra gli utenti collegati al sistema
     man <comando> # helper di sistema
     ps # mostra i processi attivi
+        a # mostra i processi anche di altri utenti
+        u # fornisce nome dell'utente che lo ha lanciato + ora di esecuzione
+        x # mostra anche i processi "demoni" (senza terminale di controllo)
+        aux # mostra tutti i procesi + chi li ha aperti
