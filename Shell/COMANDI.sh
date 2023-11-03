@@ -9,7 +9,7 @@
                          # $1 = arg1
                          # $2 = arg12
     shift # comando che sposta i parametri verso sinistra (tranne $s0 che rimane fisso), ex dopo shift: $1 => $2 
-    set # riassegnamento di argomenti
+    set # riassegnamento di parametri
     $* # insieme di tutti gli parametri da $1
     $# # numero di parametri
     $? # valore (int) restituito dall'ultimo comando eseguito (utile per error handling)
@@ -37,7 +37,7 @@
         eval echo $x # ex: stampa 3 (perché valuta $y, altrimenti senza eval avrebbe stampato "$y", cioè il valore di x)
     * # qualunque stringa di >= 0 caratteri in un nome di un file
     ? # qualunque carattere in un nome di un file
-    [zfc] # qualunque carattere compreso nel range dato
+    [zfc] # qualunque carattere compreso n\ range dato
         [a-e]* # ex: qualunque file che inizia per a-e
         [a-p,1-7]*[c,f,d]? # ex: qualunque file che inizia per a-p oppure 1-7, il cui penultimo carattere sia c, f, d
     \  # escape, segnala di non interpretare il carattere successivo come speciale
