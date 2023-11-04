@@ -10,20 +10,14 @@ then
 fi
 
 dirName=$1
+fileName=$2
+
 if test ! -d $dirName
 then
     echo 'Il primo parametro deve essere una cartella'
     exit 2
 fi
 
-# echo `ls $dirName`
-
-fileName=$2
-if test ! -f $fileName
-then
-    echo 'Il secondo parametro deve essere un file'
-    exit 3
-fi
 
 # verifica se ho i permessi per entrare in una directory
 if test ! -x $dirName
@@ -32,16 +26,9 @@ then
     exit 4
 fi
 
-# tmp="`pwd`/$i"
+PATH=$PATH:`pwd`
+export PATH
 
-# echo $tmp
-# PATH=$PATH:`pwd`
-# export PATH
-
-# echo $PATH
-
-# echo $dirName
-# echo `pwd`
 # scorro il path passato alla ricerca di file o cartelle
 
 cd "$dirName"
@@ -54,7 +41,6 @@ do
     elif test -d $i
     then
         # echo "entro in cartella $dirName/$i"
-        echo `pwd`
-        sh "`pwd`/trova.sh" "$dirName/$i" "$fileName"
+        trova.sh "`pwd`/$i" "$fileName"
     fi
 done

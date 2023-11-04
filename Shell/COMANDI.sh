@@ -162,7 +162,7 @@
     seq <sequenzanumeri> # stampa sequenze di numeri
     find # cerca file con un certo criterio PRENDERE SA SLIDE COME SI USA
     diff <file1> <file2> # mostra righe diverse tra due file
-    wc # stampa il numero di roba (guardare sotto)
+    wc # WORD COUNT stampa il numero di roba (guardare sotto)
         -l <file> # conta le linee
         -w <file> # conta le parole
         -c <file> # conta i caratteri
