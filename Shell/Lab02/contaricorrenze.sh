@@ -2,7 +2,7 @@
 # Lab02 - Es 2
 
 if test $# -lt 2
-    then
+then
     echo 'Bisogna inserire almeno 2 parametri'
     exit 1
 fi
@@ -11,7 +11,7 @@ fi
 fileName=$1
 
 if test ! -f $1
-    then
+then
     echo 'Il primo argomento deve essere un file'
     exit 2
 fi
@@ -19,6 +19,6 @@ fi
 shift
 
 for i
-    do
-    echo `grep "$i" "$fileName"`
+do
+    echo "ricorrenze $i: `grep "$i" "$fileName" | wc -l`"
 done
