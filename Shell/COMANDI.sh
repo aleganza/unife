@@ -49,6 +49,11 @@
         echo "`pwd`" # ex: stampa nome dir corrente
 
 # STRUTTURE
+    # file temporanei
+    > /tmp/.counter.tmp # creo
+    echo "33" >> /tmp/.counter.tmp # scrivo
+    echo `cat < /tmp/.counter.tmp` # leggo
+
     # if else
     if <lista-comandi>
         then
