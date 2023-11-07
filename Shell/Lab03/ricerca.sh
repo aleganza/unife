@@ -1,4 +1,5 @@
 #!/bin/sh
+# Lab03 - Es 1 ric
 
 num=$1
 dirSorgente=$2
