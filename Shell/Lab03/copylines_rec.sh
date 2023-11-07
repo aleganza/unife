@@ -20,7 +20,7 @@ do
                 $fileName)
                     if test `grep $string $file | wc -l` -gt 0
                     then
-                        mv $file /mnt/x/Sistema/Scuola/Informatica/GitHub/UniFe-Programming/Shell/Lab03/tmp
+                        # mv $file /tmp # commentata per sicurezzsa
                         echo $file >> /tmp/.counter.tmp
                         echo `grep $string $file` >> /tmp/.lines.tmp
                     fi;;
