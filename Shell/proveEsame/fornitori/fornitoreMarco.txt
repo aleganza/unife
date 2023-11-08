@@ -1,0 +1,3 @@
+marco,abc12,rondella,8
+marco,aaa11,brugola,12
+marco,pips3,catena,3
