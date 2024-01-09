@@ -1,3 +1,0 @@
-simone,abc12,rondella,21
-simone,aaa11,brugola,12
-simone,pips3,catena,3

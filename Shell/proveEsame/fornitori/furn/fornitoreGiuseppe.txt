@@ -1,3 +1,0 @@
-giuseppe,abc12,rondella,51
-giuseppe,aaa11,brugola,12
-giuseppe,pips3,catena,3
