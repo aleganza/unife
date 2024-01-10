@@ -1,4 +1,7 @@
-#
+// LIBRERIE
+<fcntl.h> -> flag per apertura file
+<sys/types.h>
+<dirent.h> -> roba per dir
 
 // GENERALI
 int fork(void) -> crea processo
@@ -31,3 +34,43 @@ int open(char nomefile[], int flag, [int mode]) -> apre file
 int creat(char nomefile[], int mode) -> crea e apre file
 
 int close(int fd) -> chiude file
+
+int read(int fd, char *buf, int n) -> legge file
+
+int write(int fd, char *buf, int n) -> scrive file
+
+int lseek(int fd, int offset, int origine) -> sposta puntatore nel file
+    fd: file descriptor
+    offset: spostamento in byte rispetto all origine
+    origine: 
+        0: inizio file, (SEEK_SET)
+        1: posizione corrente, (SEEK_CUR)
+        2: fine file, (SEEK_END)
+
+int unlink(char *name) -> cancellare file
+
+int link(char *oldname, char *newname) -> incrementa link al file
+    oldname: nome del file esistente
+    newname: nome associato al nuovo link
+
+int chmod (char *pathname, char *newmode) -> modifica bit protezione di file
+    pathname: nome del file
+    newmode: contiene i nuovi diritti
+
+int chown (char *pathname, int owner, int group) -> modifica proprietario e gruppo di file
+    pathname: nome del file
+    owner: uid del nuovo proprietario
+    group: gid del gruppo
+
+int chdir (char *nomedir) -> cambia dir
+
+DIR *opendir (char *nomedir) -> apre dir
+
+int closedir (DIR *dir) -> chiude dir
+
+struct dirent *descr
+descr = readdir(DIR *dir) -> legge dir
+
+int mkdir (char *pathname, int mode) -> creazione dir
+    pathname: nome del direttorio da creare
+    mode: esprime i bit di protezione
