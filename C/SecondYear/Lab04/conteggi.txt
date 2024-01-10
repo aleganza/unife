@@ -1,0 +1,3 @@
+file.txt stringa
+file.txt stringone
+file.txt stringone

@@ -2,6 +2,7 @@
 <fcntl.h> -> flag per apertura file
 <sys/types.h>
 <dirent.h> -> roba per dir
+<unistd.h>
 
 // GENERALI
 int fork(void) -> crea processo
