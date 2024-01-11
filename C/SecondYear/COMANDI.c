@@ -1,10 +1,26 @@
 // LIBRERIE
-<fcntl.h> -> flag per apertura file
-<sys/types.h>
-<dirent.h> -> roba per dir
-<unistd.h>
+#include <fcntl.h> -> flag per apertura file
+#include <sys/types.h>
+#include <sys/wait.h> -> per usare syscall wait()
+#include <dirent.h> -> roba per dir
+#include <unistd.h>
+#include <errno.h> -> per usare errno
+#include <signal.h> -> per usare i segnali
+
+// ROBA
+static volatile sig_atomic_t
 
 // GENERALI
+char *fgets(char *s, int size, FILE *stream)
+    legge una linea dallo stream immagazzinandola nel buffer puntato da s
+
+int atoi(const char *string)
+    converte stringa in int
+    alternative:
+        strtol -> in long int
+        strtoul -> in unsigned long int
+
+// PROCESSI
 int fork(void) -> crea processo
     ritorna:
         - 0 al processo
@@ -17,7 +33,42 @@ int wait(int *status) sospensione in attesa terminazione figli
     ritorna:
         pid del processo terminato, o <0 se errore
 
-getpid() ritorna il pid del processo chiamante
+int getpid() ritorna il pid del processo chiamante
+
+// SEGNALI
+int kill(pid_t pid, int sig)
+    pid è l identificatore del processo a cui si vuole inviare il segnale
+    sig è il segnale che si vuole inviare
+
+// impostazione sigaction
+struct sigaction sa;
+sigemptyset(&sa.sa_mask);
+sa.sa_flags = 0;
+sa.sa_handler = sighandlerUSR1;
+if(sigaction(SIGURS1, &sa, NULL) < 0) {
+    perror("sigaction")
+    exit(3);
+}
+
+// segnali
+#define SIGHUP 1 /* Hangup (POSIX). Action: exit */
+#define SIGINT 2 /* Interrupt (ANSI). Action: exit */
+#define SIGQUIT 3 /* Quit (POSIX). Action: exit, core dump */
+#define SIGILL 4 /* Illegal instr (ANSI). Action: exit,
+core dump */
+...
+#define SIGKILL 9 /* Kill, unblockable (POSIX). Action: exit */
+#define SIGUSR1 10 /* User-def sig1 (POSIX). Action: exit */
+#define SIGSEGV 11 /* Segm. violation (ANSI). Action: exit, core
+dump */
+#define SIGUSR2 12 /* User-def sig2 (POSIX). Action: exit */
+#define SIGPIPE 13 /* Broken pipe (POSIX). Action: exit */
+#define SIGALRM 14 /* Alarm clock (POSIX). Action: exit */
+#define SIGTERM 15 /* Termination (ANSI). Action: exit */
+...
+#define SIGCHLD 17 /* Chld stat changed (POSIX). Action: ignore */
+#define SIGCONT 18 /* Continue (POSIX). Action ignore */
+#define SIGSTOP 19 /* Stop, unblockable (POSIX). Action: stop *#include /
 
 // FILE
 int open(char nomefile[], int flag, [int mode]) -> apre file
