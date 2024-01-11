@@ -50,6 +50,10 @@ if(sigaction(SIGURS1, &sa, NULL) < 0) {
     exit(3);
 }
 
+pause()
+    il processo attende un segnale, quando arriva gestisce
+    l handler e poi si mette ancora in attesa 
+
 // segnali
 #define SIGHUP 1 /* Hangup (POSIX). Action: exit */
 #define SIGINT 2 /* Interrupt (ANSI). Action: exit */
@@ -68,7 +72,7 @@ dump */
 ...
 #define SIGCHLD 17 /* Chld stat changed (POSIX). Action: ignore */
 #define SIGCONT 18 /* Continue (POSIX). Action ignore */
-#define SIGSTOP 19 /* Stop, unblockable (POSIX). Action: stop *#include /
+#define SIGSTOP 19 /* Stop, unblockable (POSIX). Action: stop *#include */
 
 // FILE
 int open(char nomefile[], int flag, [int mode]) -> apre file
@@ -126,3 +130,9 @@ descr = readdir(DIR *dir) -> legge dir
 int mkdir (char *pathname, int mode) -> creazione dir
     pathname: nome del direttorio da creare
     mode: esprime i bit di protezione
+
+// esistenza
+if(errno == ENOENT) {
+    printf("Il file non esiste %s", nome);
+    exit();
+}
