@@ -3,10 +3,11 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h>
 
 int main(int argc, char *argv[]) {
 
-    int fd, fdlog, status, i;
+    int fdlog, status, i;
     
     // controllo argomenti
     if(argc < 3) {
@@ -20,7 +21,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Errore opening file \"conteggi.txt\"");
         exit(2);
     }
-    close(fd);
+    close(fdlog);
 
     // algoritmo
     for(i=2; i<argc; i++) {
@@ -34,18 +35,22 @@ int main(int argc, char *argv[]) {
             char log[256];
             fdlog = open("conteggi.txt", O_WRONLY | O_APPEND);
 
+            // parte 1
             sprintf(log, "%s %s\n", argv[1], argv[i]);
             write(fdlog, log, strlen(log));
-            close(fd);
+            close(fdlog);
 
-            // da fare parte 2
+            // parte 2
+            printf("\nNum di righe in cui compare la stringa %s:\n", argv[i]);
+
+            execlp("grep", "grep", "-c", argv[i], argv[1], (char *)0);
+            perror("grep");
+            exit(4);
+        } else {
+            // padre
+            wait(&status);
         }
     }
-
-    // padre
-    for(i=2; i<argc; i++) {
-		wait(&status);
-	}
 
     printf("\n");
     return 0;
