@@ -8,7 +8,7 @@
 #include <signal.h> -> per usare i segnali
 
 // ROBA
-static volatile sig_atomic_t
+static volatile sig_atomic_t -> variabile accessibile in modo asincrono fra i processi
 
 // GENERALI
 char *fgets(char *s, int size, FILE *stream)
@@ -19,6 +19,10 @@ int atoi(const char *string)
     alternative:
         strtol -> in long int
         strtoul -> in unsigned long int
+
+fprintf(stderr, "testo") -> messaggio di errore
+
+sprintf(destinazione, "testo %s", eventualiVariabili) -> mette la stampa su destinazione e non stdout
 
 // PROCESSI
 int fork(void) -> crea processo

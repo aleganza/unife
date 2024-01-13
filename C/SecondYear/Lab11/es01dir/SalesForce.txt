@@ -1,0 +1,5 @@
+VM-SlaesForce1 contabilità x1.large operativa
+VM-SlaesForce2 contabilità x1.small operativa
+VM-SlaesForce3 magazzino x1.large operativa
+VM-SlaesForce4 economia x1.small operativa
+VM-SlaesForce5 contabilità x1.medium operativa

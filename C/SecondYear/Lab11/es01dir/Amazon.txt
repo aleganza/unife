@@ -1,0 +1,5 @@
+VM-Amazon1 contabilità x1.large inattiva
+VM-Amazon2 contabilità x1.small operativa
+VM-Amazon3 magazzino x1.large inattiva
+VM-Amazon4 economia x1.small inattiva
+VM-Amazon5 contabilità x1.medium operativa
