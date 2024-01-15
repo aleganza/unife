@@ -1,11 +1,14 @@
 // LIBRERIE
-#include <fcntl.h> -> flag per apertura file
-#include <sys/types.h>
-#include <sys/wait.h> -> per usare syscall wait()
 #include <dirent.h> -> roba per dir
-#include <unistd.h>
-#include <errno.h> -> per usare errno
+
+#include <stdio.h>
+#include <stdlib.h>
 #include <signal.h> -> per usare i segnali
+#include <fcntl.h> -> flag per apertura file
+#include <unistd.h>
+#include <string.h>
+#include <sys/wait.h> -> per usare syscall wait()
+#include <errno.h> -> per usare errno
 
 // ROBA
 static volatile sig_atomic_t -> variabile accessibile in modo asincrono fra i processi
@@ -86,6 +89,7 @@ int open(char nomefile[], int flag, [int mode]) -> apre file
         O_APPEND -> accesso in scrittura dalla fine del file, da associare a O_WRONLY
         O_TRUNC -> lunghezza del file troncata a 0, si associa a O_WRONLY
         O_CREAT -> creazione file + accesso in scrittura, (da fornire mode)
+        O_DIRECTORY -> controlla che sia una directory
     mode:
         bit di protezione in caso di O_CREAT
     ritorna:
@@ -137,6 +141,35 @@ int mkdir (char *pathname, int mode) -> creazione dir
 
 // esistenza
 if(errno == ENOENT) {
-    printf("Il file non esiste %s", nome);
-    exit();
+    fprintf(stderr, "Il file non esiste %s", nome);
+    exit(1);
 }
+
+// COSE IMPORTANTI DA FARE
+
+per ignorare un segnale -> signal(SIGINT, SIG_IGN);
+
+// leggere bene se serve anche la pipe pnp0 (quella finale) o
+// se è sufficiente stampare subito con l'ultimo figlio
+
+// quand uso head, trasformo l'intero in una stringa
+sprintf(n_str, "%d", n_results);
+execlp("head", "head", "-n", n_str, (char*)0);
+
+// P0 esempio
+
+close(p1p2[0]); // chiudo pipe inutili
+close(p1p2[1]);
+close(p2p0[1]);
+
+// OCCHIO che al posto di 100 si può mettere strlen(buffer) + 1
+while( (n_read = read(p2p0[0], buffer, 100 )) > 0 ) { // leggo dalla pipe
+    printf("%s", buffer);
+}
+
+kill(pid1, SIGUSR1); // mando segnale per partire se richiesto
+
+cnt++; // incremento richieste
+wait(&status); // attendo processi figli
+wait(&status);
+
