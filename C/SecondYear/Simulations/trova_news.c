@@ -6,6 +6,7 @@
 #include <string.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <sys/types.h>
 
 static volatile sig_atomic_t cnt = 0;
 
